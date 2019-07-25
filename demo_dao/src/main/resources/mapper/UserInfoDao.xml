@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.project.dao.UserInfoDao">
+    <resultMap id="BaseResultMap" type="com.liu.project.entity.UserInfo">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="grade" property="grade"/>
+    </resultMap>
+
+    <insert id="insertUserInfo" parameterType="com.liu.project.entity.UserInfo">
+        INSERT into userinfo (username,password,nickname,registerTime,grade) VALUE(#{username},#{password},#{nickname},#{registerTime},#{grade});
+    </insert>
+
+    <select id="queryUserInfo"  resultMap="BaseResultMap" >
+        select * FROM userinfo WHERE id=#{id}
+    </select>
+
+    <select id="queryAllUserInfo" resultType="com.liu.project.entity.UserInfo" >
+        select * FROM userinfo;
+    </select>
+    <delete id="deleteUserInfo" parameterType="integer" >
+        delete from userinfo where id=#{id}
+    </delete>
+    <update id="updateUserInfo" parameterType="com.liu.project.entity.UserInfo">
+        update userinfo
+        <set>
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="nickname!=null">
+                nickname=#{nickname},
+            </if>
+            <if test="registerTime!=null">
+                registerTime=#{registerTime},
+            </if>
+            <if test="grade!=null">
+                grade=#{grade}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>
