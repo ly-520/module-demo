@@ -1,10 +1,4 @@
-package com.liu.project.entity;/**
- * @author yonrun
- * @Title: UserInfo
- * @ProjectName moduleProject
- * @Description: TODO
- * @date 2019/7/25 18:10
- */
+package com.liu.project.entity;
 
 import lombok.Data;
 

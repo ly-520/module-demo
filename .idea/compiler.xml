@@ -23,7 +23,7 @@
       <module name="demo_dao" options="-parameters" />
       <module name="demo_entity" options="-parameters" />
       <module name="demo_service" options="-parameters" />
-      <module name="moduleProject" options="-parameters" />
+      <module name="moduleProject" options="" />
     </option>
   </component>
 </project>

@@ -2,24 +2,46 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.project</groupId>
+    <groupId>com.liu.project</groupId>
     <artifactId>demo_dao</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo_dao</name>
     <description>Demo project for Spring Boot</description>
 
+    <packaging>jar</packaging>
     <parent>
-        <groupId>com.project</groupId>
+        <groupId>com.liu.project</groupId>
         <artifactId>moduleProject</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.project</groupId>
+            <groupId>com.liu.project</groupId>
             <artifactId>demo_entity</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--必须加入以下配置不然打包会报错，详情：https://blog.csdn.net/xuanmobaobao/article/details/88919525-->
+                <configuration>
+                    <classifier>execute</classifier>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
